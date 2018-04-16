@@ -1,0 +1,22 @@
+﻿@model vidly2.Models.Customers
+@{
+    ViewBag.Title = "CustomerDetail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="jumbotron">
+    <h1>@Model.Name</h1>
+</div>
+
+<ul>
+    <li>Membership Type: @Model.MembershipType.MembershipDescription</li>
+    @if (! (Model.DOB == null))
+    {
+    <li>Member DOB: @Model.DOB</li>
+    }
+    
+
+</ul>
+

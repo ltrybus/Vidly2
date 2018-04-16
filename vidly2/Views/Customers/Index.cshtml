@@ -1,0 +1,32 @@
+﻿@model IEnumerable<vidly2.Models.Customers>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<h2>Customers</h2>
+
+    @if (Model.Count() == 0)
+    {
+        <p>No customers have ben entered int the system.</p>
+    }
+
+    else
+    {
+<table border="1">
+    <tr><th>Customer</th>
+        <th>Membership Type</th>
+    </tr>
+    @foreach (var customer in Model)
+    {
+
+    <tr>
+        
+        <td>@Html.ActionLink(customer.Name, "Edit", "Customers", new { id = customer.Id}, new { id = customer.Id })</td>
+        <td>@customer.MembershipType.MembershipDescription</td>
+    </tr>
+    }
+</table>
+    }

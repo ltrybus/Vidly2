@@ -1,0 +1,31 @@
+﻿@model vidly2.ViewModels.CustomerListViewModel
+@{
+    ViewBag.Title = "Customers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@{
+    var className = Model.Customers.Count > 0 ? "popular" : null;
+
+}
+
+<h2>Customers</h2>
+
+@if (Model.Customers.Count == 0)
+{
+    <p>No customers have ben entered int the system.</p>
+}
+
+else
+{
+    <table border="1">
+        <tr><td><b>Customer</b></td></tr>
+        @foreach (var customer in Model.Customers)
+    {
+
+        <tr><td><a href="~/Customers/Details?id=@customer.Id">@customer.Name</a></td></tr>
+}
+    </table>
+}
